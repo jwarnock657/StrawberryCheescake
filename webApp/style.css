@@ -126,11 +126,11 @@ h1.b {
 .slider {
     -webkit-appearance: none;
     width: 50%;
-    height: 10px;
+    height: 20px;
     border-radius: 5px;
-    background: #d3d3d3;
+    background: ##9cb7d8;
     outline: none;
-    opacity: 0.7;
+    opacity: 2;
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
@@ -145,17 +145,18 @@ h1.b {
     width: 23px;
     height: 24px;
     border: 0;
-    background: url('https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/64x64/shadow/shape_circle.png');
+    background: url('https://png2.kisspng.com/sh/4df5af64bf6aec718f087846c14cb0ce/L0KzQYm3UcI3N5tuiZH0aYP2gLBuTfNqepRxfZ8CLXzyd7E0kvFqdpN0j597YXnxcrFATfNqepRxfZ98dHH1PbbqjPlxe5YyTdMBYnW6RbW5hvI6PGozSaQ8MkS0RIK4VcE4OGM2SKQ6MUm4RXB3jvc=/kisspng-circle-7-logo-rainbow-rainbow-circle-star-eclipse-5a6be75d2fb949.1232414115170210211955.png');
     background-size: contain;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-    width: 23px;
-    height: 24px;
+    width: 50px;
+    height: 50px;
     border: 0;
-    background: url('https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/64x64/shadow/shape_circle.png');
+    background: url('https://png2.kisspng.com/sh/4df5af64bf6aec718f087846c14cb0ce/L0KzQYm3UcI3N5tuiZH0aYP2gLBuTfNqepRxfZ8CLXzyd7E0kvFqdpN0j597YXnxcrFATfNqepRxfZ98dHH1PbbqjPlxe5YyTdMBYnW6RbW5hvI6PGozSaQ8MkS0RIK4VcE4OGM2SKQ6MUm4RXB3jvc=/kisspng-circle-7-logo-rainbow-rainbow-circle-star-eclipse-5a6be75d2fb949.1232414115170210211955.png');
     background-size: contain;
+    background-repeat: no-repeat;
     cursor: pointer;
 }
 /* Slider ends here */
