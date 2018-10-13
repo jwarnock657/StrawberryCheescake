@@ -70,7 +70,13 @@ body {
   -moz-animation: Gradient 15s ease infinite;
   animation: Gradient 15s ease infinite;
 }
-
+/* Slider circle
+*/
+#container {
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+}
 /* Gradient Background */
 @-webkit-keyframes Gradient {
 0% {
