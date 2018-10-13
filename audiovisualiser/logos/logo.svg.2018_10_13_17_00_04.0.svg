@@ -17,7 +17,7 @@
    id="SVGRoot"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="logo.svg"
-   inkscape:export-filename="A:\Documents\GUTS_Hackathon_2018\StrawberryCheescake\audiovisualiser\logo_white.png"
+   inkscape:export-filename="A:\Documents\GUTS_Hackathon_2018\StrawberryCheescake\audiovisualiser\logo_blue.png"
    inkscape:export-xdpi="116.58128"
    inkscape:export-ydpi="116.58128">
   <sodipodi:namedview
@@ -28,10 +28,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.024"
-     inkscape:cx="169.62564"
-     inkscape:cy="283.96401"
+     inkscape:cx="250"
+     inkscape:cy="250"
      inkscape:document-units="px"
-     inkscape:current-layer="g922"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1137"
@@ -41,16 +41,16 @@
   <defs
      id="defs1610">
     <linearGradient
-       inkscape:collect="always"
-       id="linearGradient879">
+       id="linearGradient2203"
+       inkscape:collect="always">
       <stop
-         style="stop-color:#000000;stop-opacity:1;"
+         id="stop2199"
          offset="0"
-         id="stop875" />
+         style="stop-color:#808080;stop-opacity:1" />
       <stop
-         style="stop-color:#cccccc;stop-opacity:1"
+         id="stop2201"
          offset="1"
-         id="stop877" />
+         style="stop-color:#3771c8;stop-opacity:1" />
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
@@ -75,12 +75,21 @@
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient879"
-       id="linearGradient913"
-       x1="-112.48438"
-       y1="432.61719"
-       x2="366.39062"
-       y2="250"
+       xlink:href="#linearGradient2203"
+       id="linearGradient2191"
+       gradientUnits="userSpaceOnUse"
+       x1="14.648437"
+       y1="132.8125"
+       x2="583.98438"
+       y2="356.44531" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2203"
+       id="linearGradient2227"
+       x1="434.76782"
+       y1="511.78314"
+       x2="646.30243"
+       y2="81.119057"
        gradientUnits="userSpaceOnUse" />
   </defs>
   <metadata
@@ -99,31 +108,28 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
-    <g
-       id="g922">
-      <path
-         sodipodi:open="true"
-         d="M 450.20345,248.1109 A 200.19531,200.19531 0 0 1 326.61956,433.06725 200.19531,200.19531 0 0 1 108.44867,389.67036 200.19531,200.19531 0 0 1 65.051782,171.49947 200.19531,200.19531 0 0 1 250.00814,47.915588"
-         sodipodi:end="4.712389"
-         sodipodi:start="0"
-         sodipodi:ry="200.19531"
-         sodipodi:rx="200.19531"
-         sodipodi:cy="248.1109"
-         sodipodi:cx="250.00813"
-         sodipodi:type="arc"
-         id="path2169"
-         style="fill:none;stroke:#dcdcdc;stroke-width:11.33858268;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <text
-         id="text917"
-         y="317.29599"
-         x="119.146"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:40px;line-height:125%;font-family:Montserrat;-inkscape-font-specification:'Montserrat, Heavy';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#dcdcdc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-         xml:space="preserve"><tspan
-           style="font-size:192px;-inkscape-font-specification:'Montserrat Bold';font-family:Montserrat;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;fill:#dcdcdc;fill-opacity:1;"
-           y="317.29599"
-           x="119.146"
-           id="tspan915"
-           sodipodi:role="line">SC</tspan></text>
-    </g>
+    <path
+       style="fill:none;stroke:url(#linearGradient2227);stroke-width:11.33858299;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path2169"
+       sodipodi:type="arc"
+       sodipodi:cx="250.00813"
+       sodipodi:cy="248.1109"
+       sodipodi:rx="200.19531"
+       sodipodi:ry="200.19531"
+       sodipodi:start="0"
+       sodipodi:end="4.712389"
+       sodipodi:open="true"
+       d="M 450.20345,248.1109 A 200.19531,200.19531 0 0 1 326.61956,433.06725 200.19531,200.19531 0 0 1 108.44867,389.67036 200.19531,200.19531 0 0 1 65.051782,171.49947 200.19531,200.19531 0 0 1 250.00814,47.915588" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:40px;line-height:125%;font-family:Montserrat;-inkscape-font-specification:'Montserrat, Heavy';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:url(#linearGradient2191);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="128.26562"
+       y="315.76562"
+       id="text2173"><tspan
+         sodipodi:role="line"
+         id="tspan2171"
+         x="128.26562"
+         y="315.76562"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:192px;font-family:'GrilledCheese BTN Toasted';-inkscape-font-specification:'GrilledCheese BTN Toasted Bold';fill-opacity:1;fill:url(#linearGradient2191)">SC</tspan></text>
   </g>
 </svg>
