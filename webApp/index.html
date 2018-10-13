@@ -15,18 +15,20 @@
   <h1 class="logo a">Logo</h1>
   <ul class="nav">
 
-  <form>
-    <button class="button button1" formaction="index.html">HOME</button>
-    <button class="button button1" formaction="manual.html">MANUAL</button>
-  </form>
+    <form>
+      <button class="button button1" formaction="index.html">HOME</button>
+      <button class="button button1" formaction="manual.html">MANUAL</button>
+    </form>
 
   </ul>
 </header>
 
 <!-- this body got curves -->
+<!-- Sidenote: have to look up ajax -->
+
 <body>
 
- <!-- fancy label cause creative points -->
+  <!-- fancy label cause creative points -->
   <h1 class="b">Emotional State Display (ESD): </h1>
 
   <!-- Magic slider shit -->
@@ -54,13 +56,14 @@
         <div id="waveform"></div>
       <!-- Control Button -->
         <div class="controls">
-          <button id="micBtn" class="btn btn-primary" data-action="start">
-            Microphone: Start/Stop
-          </button>
+          <div id="playButton" class="playButton" data-action="start" src="app.js">
+            <div id="playTriangle"></div>
+            <div id="playCircle"></div>
+          </div>
         </div>
       </div>
   </div>
-  <!-- End of the visualiser -->
+  <!-- End of visualiser -->
 
 </body>
 
