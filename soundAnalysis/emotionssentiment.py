@@ -18,6 +18,8 @@ from keras.models import Model
 from keras.callbacks import ModelCheckpoint
 from sklearn.metrics import confusion_matrix
 import pandas as pd
+from speech_recog_updated import *
+import speech_recognition as sr
 
 from keras import regularizers
 import os
@@ -394,7 +396,7 @@ def analyzer(fileName):
     # labels = pd.DataFrame(feeling_list)
 
 
-    X, sample_rate = librosa.load('soundAnalysis/'+fileName, res_type='kaiser_fast', duration=2.5, sr=22050 * 2, offset=0.5)
+    X, sample_rate = librosa.load(fileName, res_type='kaiser_fast', duration=2.5, sr=22050 * 2, offset=0.5)
     sample_rate = np.array(sample_rate)
     mfccs = np.mean(librosa.feature.mfcc(y=X, sr=sample_rate, n_mfcc=13), axis=0)
     featurelive = mfccs
@@ -445,6 +447,29 @@ def analyzer(fileName):
 
     print(state[liveabc[0]])
 
+def speech_recog():
+    
+    recognizer = sr.Recognizer()
+    print("Recognizing")
+    user_said = recognize_speech(recognizer)
+
+    #if what was said was understood
+    if user_said["transcription"]:
+        #change from type object to string
+        said = str(user_said["transcription"])
+
+        #write said to csv
+        with open('csvfile.csv','w') as file:
+            file.write(said)
+            file.write('\n')
+
+        #print what was said
+        print(user_said["transcription"])
+    elif user_said["success"]:
+        print("I didn't catch that. What did you say?\n")
+    else:
+        print("Error")
+        print(user_said["error"])
 
 def worker(num):
 
@@ -483,7 +508,7 @@ def worker(num):
         stream.close()
         p.terminate()
 
-        wf = wave.open("soundAnalysis/"+WAVE_OUTPUT_FILENAME, 'wb')
+        wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
         wf.setnchannels(CHANNELS)
         wf.setsampwidth(p.get_sample_size(FORMAT))
         wf.setframerate(RATE)
@@ -492,6 +517,9 @@ def worker(num):
 
 
         analyzer(WAVE_OUTPUT_FILENAME)
+
+        if num==0:
+            speech_recog()
 
 
 
