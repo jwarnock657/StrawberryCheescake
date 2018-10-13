@@ -70,7 +70,30 @@
     </div>
   </div>
   <!-- End of visualiser -->
-
+  <div id="container">
+    <script>
+      var bar = new ProgressBar.SemiCircle(container, {
+        strokeWidth: 6,
+        color: '#FFEA82',
+        trailColor: '#eee',
+        trailWidth: 1,
+        easing: 'easeInOut',
+        duration: 1400,
+        svgStyle: null,
+        text: {
+          value: '',
+          alignToBottom: false
+        },
+        from: { color: '#FFEA82' },
+        to: { color: '#ED6A5A' },
+        // Set default step function for all animate calls
+        step: (state, bar) => {
+          bar.path.setAttribute('stroke', state.color);
+          var value = Math.round(bar.value() * 100);
+    </script>
+  </div>
 </body>
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
+
 
 </html>
