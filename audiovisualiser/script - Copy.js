@@ -4,7 +4,7 @@ var canvas, ctx, source, context, analyser, fbc_array, rads,
 	bars, bar_x, bar_y, bar_x_term, bar_y_term, bar_width,
 	bar_height, react_x, react_y, intensity, rot, inputURL,
 	JSONPThing, JSONResponse, soundCloudTrackName, audio, pause,
-	artist, title, img_url, isSeeking;
+	artist, title, isSeeking;
 
 var client_id = "8df0d68fcc1920c92fc389b89e7ce20f";
 
@@ -26,7 +26,6 @@ function initPage() {
 
 	//resize_canvas();
 
-	document.getElementById("artwork").style.opacity = 0;
 
 	audio = new Audio();
 	audio.crossOrigin = "anonymous";
@@ -106,7 +105,6 @@ function tracksJSONCallback(data) {
 		if(track.permalink == soundCloudTrackName) {
 			inputURL = track.stream_url + "?client_id=" + client_id;
 			title = track.title;
-			img_url = track.artwork_url;
 
 			initMp3Player();
 			break;
@@ -159,11 +157,7 @@ function initMp3Player() {
 	document.getElementById("artistname").innerHTML = artist;
 	document.getElementById("songname").innerHTML = title;
 	document.getElementById("pagetitle").innerHTML = title;
-	document.getElementById("artwork").src = img_url;
 
-	document.getElementById("artwork").style.opacity = 100;
-	document.getElementById("artwork").style.border = "5px solid #f174eb";
-	document.getElementById("artwork").style.padding= "1px";
 }
 
 function frameLooper() {
