@@ -7,6 +7,7 @@
   font-weight: normal !important;
 }
 
+
 /******************************
 Flexbox Layout
 *******************************/
@@ -47,6 +48,14 @@ Flexbox Layout
 /******************************
 Treehouse Styling
 *******************************/
+ul li {
+  style: none;
+}
+
+.names div {
+  display: inline-block;
+  margin-left: 30px;
+}
 
 body {
   margin: 10;
