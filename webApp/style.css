@@ -166,8 +166,8 @@ div.visualiser {
   width: 60%;
   align-self: center;
   justify-content: center;
-  float: right;
-  margin-left:160%;
+  float: center;
+  margin-left: 650px;
 }
 
 #waveform{
