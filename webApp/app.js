@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
   wavesurfer = WaveSurfer.create(
   {
     container: '#waveform',
-    waveColor: '#9cb7d8',
+    waveColor: '#f7f7f7',
 		progressColor: '#4f4f4f',
 		barHeight: 5,
     interact: false,
