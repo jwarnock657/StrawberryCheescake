@@ -5,7 +5,7 @@ var wavesurfer;
 
 // Init & load
 document.addEventListener('DOMContentLoaded', function() {
-  var playButton = document.querySelector('#playButton');
+  var micBtn = document.querySelector('#micBtn');
 
   // Init wavesurfer
   wavesurfer = WaveSurfer.create(
@@ -28,18 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // start/stop mic on button click
-    playButton.onclick = function() {
+    micBtn.onclick = function() {
       if (wavesurfer.microphone.active) {
         wavesurfer.microphone.stop();
       } else {
         wavesurfer.microphone.start();
       }
     };
-});
-
-$(document).ready(function () {
- $('#playButton').hover(
-       function(){ $(this).addClass('animated pulse') },
-       function(){ $(this).removeClass('animated pulse') }
-);
 });
