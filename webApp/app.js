@@ -14,8 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
     waveColor: '#f7f7f7',
 		progressColor: '#4f4f4f',
 		barHeight: 5,
+    barWidth: .1,
+    barGap: -1,
     interact: false,
     cursorWidth: 0,
+    normalize: true,
     plugins: [WaveSurfer.microphone.create()]
   }
   );
