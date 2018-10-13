@@ -3,9 +3,10 @@
 <link rel="stylesheet" href="style.css">
 
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <title>Strawberry Cheesecake - How do you feel?</title>
   <link rel="shortcut icon" href="sc_browser_icon.ico">
-    <!-- JS files for the visualiser -->
+  <!-- JS files for the visualiser -->
   <script src="https://unpkg.com/wavesurfer.js" type="text/javascript"></script>
   <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js" type="text/javascript"></script>
   <script src="app.js"></script>
@@ -17,7 +18,7 @@
 
     <form>
       <button class="button button1" formaction="index.html">HOME</button>
-      <button class="button button1" formaction="manual.html">MANUAL</button>
+      <button class="button button1" formaction="manual.html">CREDITS</button>
     </form>
 
   </ul>
@@ -29,7 +30,8 @@
 <body>
 
   <!-- fancy label cause creative points -->
-  <h1 class="b">Emotional State Display (ESD): </h1>
+
+  <h1 class="animated slideInUp delay-2s">Emotional State Display (ESD): </h1>
 
   <!-- Magic slider shit -->
   <div class="slidecontainer">
@@ -43,32 +45,55 @@
     var output = document.getElementById("demo");
     output.innerHTML = slider.value;
 
-    slider.oninput = function() {
+    slider.oninput = function () {
       output.innerHTML = this.value;
     }
   </script>
 
   <!-- Div for the visualiser -->
   <div class="visualiser">
-    <h1 class="b" style=margin-top:150px>Audio Visualiser:</h1>
+    <h1 class="animated slideInUp delay-2s" style=margin-top:150px>Audio Visualiser:</h1>
     <div id="demo">
       <!-- Visualiser -->
-        <div id="waveform"></div>
+      <div id="waveform"></div>
       <!-- Control Button -->
-        <div class="controls">
-          <button id="micBtn" class="btn btn-primary" data-action="start">
-            Microphone: Start/Stop
-          </button>
-          <!-- This code below doesn't work for some reason -->
-          <!-- <div id="playButton" class="playButton" data-action="start" src="app.js">
+      <div class="controls">
+        <button id="micBtn" class="btn btn-primary" data-action="start">
+          Microphone: Start/Stop
+        </button>
+        <!-- This code below doesn't work for some reason -->
+        <!-- <div id="playButton" class="playButton" data-action="start" src="app.js">
             <div id="playTriangle"></div>
             <div id="playCircle"></div>
           </div> -->
-        </div>
       </div>
+    </div>
   </div>
   <!-- End of visualiser -->
-
+  <div id="container">
+    <script>
+      var bar = new ProgressBar.SemiCircle(container, {
+        strokeWidth: 6,
+        color: '#FFEA82',
+        trailColor: '#eee',
+        trailWidth: 1,
+        easing: 'easeInOut',
+        duration: 1400,
+        svgStyle: null,
+        text: {
+          value: '',
+          alignToBottom: false
+        },
+        from: { color: '#FFEA82' },
+        to: { color: '#ED6A5A' },
+        // Set default step function for all animate calls
+        step: (state, bar) => {
+          bar.path.setAttribute('stroke', state.color);
+          var value = Math.round(bar.value() * 100);
+    </script>
+  </div>
 </body>
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
+
 
 </html>
