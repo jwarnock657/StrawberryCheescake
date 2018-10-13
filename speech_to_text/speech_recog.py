@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import csv
-import pandas as pd
+import wave
+import scipy.io.wavfile
 
 def recognize_speech(recognizer, microphone):
 # check that recognizer and microphone arguments are appropriate type
@@ -13,9 +14,11 @@ def recognize_speech(recognizer, microphone):
     # adjust the recognizer sensitivity to ambient noise and record audio
     # from the microphone
     with microphone as source:
+        print("Started Listening...")
         recognizer.adjust_for_ambient_noise(source)
         audio = recognizer.listen(source)
-
+        print("Finished Listening....")
+    
     # set up the response object
     response = {
         "success": True,
@@ -51,15 +54,19 @@ if __name__ == "__main__":
     user_said = recognize_speech(recognizer, microphone)
 
     print("Value / Error Returned")
-    
+
+    #if what was said was understoo
     if user_said["transcription"]:
 
+        #change from type object to string
         said = str(user_said["transcription"])
-        
+
+        #write said to csv
         with open('csvfile.csv','w') as file:
             file.write(said)
             file.write('\n')
 
+        #print what was said
         print(user_said["transcription"])
     elif user_said["success"]:
         print("I didn't catch that. What did you say?\n")

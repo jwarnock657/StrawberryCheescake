@@ -31,15 +31,21 @@ body{
     width: 275px;
 }
 
+.fileUpload {
+	background: #105070
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
 #title {
-	color: white;
+	color: #efefef;
 	position: absolute;
 	bottom: -10px;
 	left: 10px;
 }
 
 #instruction {
-	color: white;
+	color: #efefef;
 	position: absolute;
 	bottom: 55px;
 	left: 10px;
@@ -59,7 +65,7 @@ body{
 }
 
 #artisttitle {
-	color: white;
+	color: #efefef;
 	position: absolute;
 	top: 40px;
 	left: 170px;
@@ -67,7 +73,7 @@ body{
 }
 
 #songtitle {
-	color: white;
+	color: #efefef;
 	position: absolute;
 	top: 0px;
 	left: 170px;
@@ -95,6 +101,10 @@ body{
 	position: relative;
 	bottom: 86px;
 	left: 33.3%;
+	color: #7fabe0;
+}
+
+#button_submit {
 	color: #7fabe0;
 }
 

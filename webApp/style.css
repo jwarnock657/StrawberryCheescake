@@ -52,6 +52,7 @@ body {
   background: url('https://scontent-lhr3-1.xx.fbcdn.net/v/t1.15752-9/44039090_1593912074047088_6710026646331588608_n.jpg?_nc_cat=103&_nc_ht=scontent-lhr3-1.xx&oh=114f2c849c34782d2ffc76ee965c0d74&oe=5C5A6E0E') top center no-repeat;
   background-size: cover;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 h1.a {
@@ -125,11 +126,11 @@ h1.b {
 .slider {
     -webkit-appearance: none;
     width: 50%;
-    height: 10px;
+    height: 20px;
     border-radius: 5px;
-    background: #d3d3d3;
+    background: ##9cb7d8;
     outline: none;
-    opacity: 0.7;
+    opacity: 2;
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
@@ -144,20 +145,145 @@ h1.b {
     width: 23px;
     height: 24px;
     border: 0;
-    background: url('https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/64x64/shadow/shape_circle.png');
+    background: url('https://png2.kisspng.com/sh/4df5af64bf6aec718f087846c14cb0ce/L0KzQYm3UcI3N5tuiZH0aYP2gLBuTfNqepRxfZ8CLXzyd7E0kvFqdpN0j597YXnxcrFATfNqepRxfZ98dHH1PbbqjPlxe5YyTdMBYnW6RbW5hvI6PGozSaQ8MkS0RIK4VcE4OGM2SKQ6MUm4RXB3jvc=/kisspng-circle-7-logo-rainbow-rainbow-circle-star-eclipse-5a6be75d2fb949.1232414115170210211955.png');
     background-size: contain;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-    width: 23px;
-    height: 24px;
+    width: 50px;
+    height: 50px;
     border: 0;
-    background: url('https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/64x64/shadow/shape_circle.png');
+    background: url('https://png2.kisspng.com/sh/4df5af64bf6aec718f087846c14cb0ce/L0KzQYm3UcI3N5tuiZH0aYP2gLBuTfNqepRxfZ8CLXzyd7E0kvFqdpN0j597YXnxcrFATfNqepRxfZ98dHH1PbbqjPlxe5YyTdMBYnW6RbW5hvI6PGozSaQ8MkS0RIK4VcE4OGM2SKQ6MUm4RXB3jvc=/kisspng-circle-7-logo-rainbow-rainbow-circle-star-eclipse-5a6be75d2fb949.1232414115170210211955.png');
     background-size: contain;
+    background-repeat: no-repeat;
     cursor: pointer;
 }
 /* Slider ends here */
+
+/* Visualiser starts here */
+div.visualiser {
+  width: 60%;
+  align-self: center;
+  justify-content: center;
+  float: center;
+  margin-left: 650px;
+}
+
+#waveform{
+  background: rgba(0,0,0,0);
+}
+
+/* Container for the play button. Provides positioning*/
+.controls {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    top:-30%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 3em;
+    transistion: all .5s ease;
+}
+
+#playButton:hover {
+  cursor:pointer;
+}
+
+/* Shape */
+#playTriangle {
+    margin: 3px 11px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-left: 15px solid white;
+    border-bottom: 8px solid transparent;
+}
+/* Shape */
+#playCircle{
+  margin:-28px auto 0 auto;
+  background-color: rgba(0,0,0,0);
+  border: 2px solid white;
+  height: 30px;
+  width: 30px;
+  -moz-border-radius:75px;
+  -webkit-border-radius: 75px;
+}
+/* Play button shape */
+.playButton {
+    margin:50px auto 0 auto;
+    width: 30px;
+  transistion: all .5s ease;
+}
+
+#playCircle:hover {
+    border: 2px dotted white;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 4000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 4000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-iteration-count:infinite;
+    -webkit-animation-iteration-count:infinite;
+}
+
+@-webkit-keyframes pulse {
+    0% { -webkit-transform: scale(1); }
+    50% { -webkit-transform: scale(1.1); }
+    100% { -webkit-transform: scale(1); }
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+}
+
+/* Visualiser ends here */
 
 @media all and (min-width: 1030px) {
   .header {

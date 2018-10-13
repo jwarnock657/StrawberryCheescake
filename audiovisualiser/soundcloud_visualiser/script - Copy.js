@@ -9,7 +9,7 @@ var canvas, ctx, source, context, analyser, fbc_array, rads,
 var client_id = "8df0d68fcc1920c92fc389b89e7ce20f";
 
 // give vars an initial real value to validate
-bars = 200;
+bars = 5;
 react_x = 0;
 react_y = 0;
 radius = 0;
