@@ -9,7 +9,7 @@ var canvas, ctx, source, context, analyser, fbc_array, rads,
 var client_id = "8df0d68fcc1920c92fc389b89e7ce20f";
 
 // give vars an initial real value to validate
-bars = 200;
+bars = 5;
 react_x = 0;
 react_y = 0;
 radius = 0;
@@ -25,7 +25,6 @@ function initPage() {
 	ctx = canvas.getContext("2d");
 
 	//resize_canvas();
-
 
 	audio = new Audio();
 	audio.crossOrigin = "anonymous";
@@ -46,34 +45,11 @@ function initPage() {
 }
 
 function resize_canvas() {
-		canvas.width  = window.innerWidth;
-		canvas.height = window.innerHeight;
+	canvas.width  = window.innerWidth;
+	canvas.height = window.innerHeight;
 }
 
-(function() {
-    var mouseTimer = null, cursorVisible = true;
 
-    function disappearCursor() {
-        mouseTimer = null;
-        document.body.style.cursor = "none";
-		document.getElementById("hideHead").style.opacity = 0;
-		document.getElementById("hideBody").style.opacity = 0;
-        cursorVisible = false;
-    }
-
-    document.onmousemove = function() {
-        if (mouseTimer) {
-            window.clearTimeout(mouseTimer);
-        }
-        if (!cursorVisible) {
-            document.body.style.cursor = "default";
-			document.getElementById("hideHead").style.opacity = 100;
-			document.getElementById("hideBody").style.opacity = 100;
-            cursorVisible = true;
-        }
-        mouseTimer = window.setTimeout(disappearCursor, 3000);
-    };
-})();
 
 function getJSON(url, callback) {
 	JSONPThing = document.createElement("script");
@@ -164,6 +140,7 @@ function frameLooper() {
 	resize_canvas(); // for some reason i have to resize the canvas every update or else the framerate decreases over time
 
 	var grd = ctx.createLinearGradient(0, 0, 0, canvas.height);
+	// 0 values in rgba is the transparency (allows clear background)
 	grd.addColorStop(0, "rgba(180, 140, 230, 0)");
 	grd.addColorStop(1, "rgba(102, 102, 255, 0)");
 

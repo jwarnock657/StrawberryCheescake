@@ -7,36 +7,30 @@
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<script type="text/javascript" src="script.js"></script>
 
-		<div id="hideHead">
+		<!-- <div id="hideHead">
 			<iframe id="soundcloud" allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com&color=white_orange&size=32" style="width: 32px; height: 32px;"></iframe>
-		</div>
+		</div> -->
 	</head>
 
 	<body onload="initPage()">
 		<canvas id="visualizer_render"></canvas>
 
+		<!-- DO NOT REMOVE - This breaks the page for some reason (lol)? -->
 		<div id="image">
 			<img id="artwork" width="150" height="150">
 		</div>
 
-		<div id="artisttitle">
-			<h1 id="artistname"></h1>
-		</div>
-
-		<div id="songtitle">
-				<h1 id="songname"></h1>
-		</div>
-
+		<!-- Form to submit file to play -->
 		<!-- <form method="post" enctype="multipart/form-data">
-			<div>
+			<div class="fileUpload">
 				<label for="file">Choose file to upload</label>
 				<input type="file"
 				id="file"
 				name="file">
 			</div>
 
-			<div>
-				<button>Submit</button>
+			<div id="button_submit">
+				<button class="button">Submit</button>
 			</div>
 		</form> -->
 
