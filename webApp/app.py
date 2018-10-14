@@ -12,6 +12,5 @@ def index():
     return render_template('index.html', positivity=answer, transcript="hello dom")
 
 
-
 if __name__ == "__main__":
     app.run()
