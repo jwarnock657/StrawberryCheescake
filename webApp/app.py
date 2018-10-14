@@ -9,7 +9,7 @@ def predict():
 answer = predict()
 @app.route('/')
 def index():
-    return render_template('developers.html', positivity=answer, transcript="hello dom")
+    return render_template('index.html', positivity=answer, transcript="hello dom")
 
 
 
