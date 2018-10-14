@@ -18,11 +18,24 @@ Flexbox Layout
   -webkit-flex-direction: column;
   flex-direction: column;
 }
+.positivity
+{
 
+}
+.Mood
+{
+
+}
 .header {
   justify-content: space-between;
 }
-
+.footer
+{
+  margin-top: 200px;
+  clear: both;
+  font-size: 20pt;
+  color: white;
+}
 .nav {
   -webkit-flex: 1;
   flex: 1;
