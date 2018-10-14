@@ -455,34 +455,34 @@ class CNN:
 
 
         print(state[liveabc[0]])
-
-    def textAnalysis(self, text):
-        embedding_dimensions = 128
-        lstm_out = 200
-        batch_size = 32
-        # custom_adam = keras.optimizers.Adam(lr=0.005, beta_1=0.9, beta_2=0.999, epsilon=1e-8)
-        model = Sequential()
-        model.add(Embedding(2500, embedding_dimensions, input_length=len(text), dropout=0.2))
-        model.add(LSTM(lstm_out, dropout_U=0.2, dropout_W=0.2))
-        model.add(Dense(2, activation='softmax'))
-        model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-        # print(model.summary())
-
-
-
-        twt = text
-
-        max_features = 200
-        tokeniser = Tokenizer(num_words=max_features, split=' ')
-        tokeniser.fit_on_texts(twt)
-        twt = tokeniser.texts_to_sequences(twt)
-        twt = pad_sequences(twt, maxlen=200)
-        sentiment = model.predict(twt, batch_size=16, verbose=2)[0]
-        print(text)
-        if (np.argmax(sentiment) == 0):
-            print("negative")
-        elif (np.argmax(sentiment) == 1):
-            print("positive")
+    #
+    # def textAnalysis(self, text):
+    #     embedding_dimensions = 128
+    #     lstm_out = 200
+    #     batch_size = 32
+    #     # custom_adam = keras.optimizers.Adam(lr=0.005, beta_1=0.9, beta_2=0.999, epsilon=1e-8)
+    #     model = Sequential()
+    #     model.add(Embedding(2500, embedding_dimensions, input_length=len(text), dropout=0.2))
+    #     model.add(LSTM(lstm_out, dropout_U=0.2, dropout_W=0.2))
+    #     model.add(Dense(2, activation='softmax'))
+    #     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+    #     # print(model.summary())
+    #
+    #
+    #
+    #     twt = text
+    #
+    #     max_features = 200
+    #     tokeniser = Tokenizer(num_words=max_features, split=' ')
+    #     tokeniser.fit_on_texts(twt)
+    #     twt = tokeniser.texts_to_sequences(twt)
+    #     twt = pad_sequences(twt, maxlen=200)
+    #     sentiment = model.predict(twt, batch_size=16, verbose=2)[0]
+    #     print(text)
+    #     if (np.argmax(sentiment) == 0):
+    #         print("negative")
+    #     elif (np.argmax(sentiment) == 1):
+    #         print("positive")
 
     def recognize_speech(self, recognizer):
         audio_input = sr.AudioFile('output0.wav')
@@ -527,9 +527,13 @@ class CNN:
             #change from type object to string
             said = str(user_said["transcription"])
 
-            threading.Thread(target=self.textAnalysis, args=(said,)).start()
+            #threading.Thread(target=self.textAnalysis, args=(said,)).start()
 
             #write said to csv
+            fourSSpeech = 'soundAnalysis/4sSpeech2Txt.txt'
+            with open(fourSSpeech, 'w') as file:
+                file.write(said)
+
             transcript = 'soundAnalysis/transcript.txt'
             if not os.path.isfile(transcript):
                 with open(transcript,'w') as file:
