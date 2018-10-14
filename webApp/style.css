@@ -251,3 +251,21 @@ visualiser {
     min-width: 768px;
   }
 }
+
+#micBtn {
+  background-color: Transparent;
+  border: 3px solid: grey;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 35px 10px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-repeat:no-repeat;
+  overflow: hidden;
+  color: #e8e8e8;
+  border: 2px solid #e7e7e7;
+}
