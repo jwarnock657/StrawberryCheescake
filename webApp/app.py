@@ -37,25 +37,26 @@ def predict():
     return {'transcript': transcript, 'fourSSPeech2Txt': fourSSpeech2Txt, "textAnalysisOutput": textAnalysisOutput, "voiceAnalysis": voiceAnalysis}
 
 
-answer = predict()
-maxmood = "None"
-confidence = 0
-for key, value in answer["voiceAnalysis"].iteritems():
-    if value > confidence:
-        confidence = value
-        maxmood = key
-    else: 
-        pass
 
-confidence = round(float(confidence), 3) * 100
-
-if (answer["textAnalysisOutput"] == 1):
-    answer["textAnalysisOutput"] = "positive"
-elif(answer["textAnalysisOutput"] == 0):
-    answer["textAnalysisOutput"] = "Negative"
 
 @app.route('/')
 def index():
+    answer = predict()
+    maxmood = "None"
+    confidence = 0
+    for key, value in answer["voiceAnalysis"].iteritems():
+        if value > confidence:
+            confidence = value
+            maxmood = key
+        else: 
+            pass
+
+    confidence = round(float(confidence), 3) * 100
+
+    if (answer["textAnalysisOutput"] == 1):
+        answer["textAnalysisOutput"] = "positive"
+    elif(answer["textAnalysisOutput"] == 0):
+        answer["textAnalysisOutput"] = "Negative"
     return render_template('index.html', positivity=answer["textAnalysisOutput"], transcript=answer['fourSSPeech2Txt'], mood=maxmood, confidence = confidence)
 
 # @app.route('/')
