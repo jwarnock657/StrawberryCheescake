@@ -11,11 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
   wavesurfer = WaveSurfer.create(
   {
     container: '#waveform',
-    waveColor: '#9cb7d8',
+    waveColor: '#f7f7f7',
 		progressColor: '#4f4f4f',
 		barHeight: 5,
+    barWidth: .1,
+    barGap: -1,
     interact: false,
     cursorWidth: 0,
+    normalize: true,
     plugins: [WaveSurfer.microphone.create()]
   }
   );

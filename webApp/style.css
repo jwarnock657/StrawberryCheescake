@@ -7,6 +7,7 @@
   font-weight: normal !important;
 }
 
+
 /******************************
 Flexbox Layout
 *******************************/
@@ -47,14 +48,19 @@ Flexbox Layout
 /******************************
 Treehouse Styling
 *******************************/
+ul li {
+  style: none;
+}
+
+.names div {
+  display: inline-block;
+  margin-left: 30px;
+}
 
 body {
   margin: 10;
-  /* background: url('https://scontent-lhr3-1.xx.fbcdn.net/v/t1.15752-9/44039090_1593912074047088_6710026646331588608_n.jpg?_nc_cat=103&_nc_ht=scontent-lhr3-1.xx&oh=114f2c849c34782d2ffc76ee965c0d74&oe=5C5A6E0E') top center no-repeat; */
-  background-size: cover;
-  overflow-x: hidden;
-  overflow-y: hidden;
 
+  /* Faded Background */
   background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
   background-size: 400% 400%;
   -webkit-animation: Gradient 15s ease infinite;
@@ -62,6 +68,11 @@ body {
   animation: Gradient 15s ease infinite;
 }
 
+#container {
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+}
 /* Gradient Background */
 @-webkit-keyframes Gradient {
 0% {
@@ -204,6 +215,7 @@ h1 {
     background-repeat: no-repeat;
     cursor: pointer;
 }
+
 /* Slider ends here */
 
 /* Visualiser starts here */
@@ -238,4 +250,22 @@ visualiser {
     width: 1030px;
     min-width: 768px;
   }
+}
+
+#micBtn {
+  background-color: Transparent;
+  border: 3px solid: grey;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 35px 10px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-repeat:no-repeat;
+  overflow: hidden;
+  color: #e8e8e8;
+  border: 2px solid #e7e7e7;
 }
