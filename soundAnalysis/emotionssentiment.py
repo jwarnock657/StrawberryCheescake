@@ -3,7 +3,7 @@ import librosa.display
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
-import matplotlib.pyplot as plt
+from matplotlib.pyplot import specgram
 import keras
 from keras.preprocessing import sequence
 from keras.models import Sequential
@@ -18,24 +18,14 @@ from keras.models import Model
 from keras.callbacks import ModelCheckpoint
 from sklearn.metrics import confusion_matrix
 import pandas as pd
-from keras.models import model_from_json
+from speech_recog_updated import *
+import speech_recognition as sr
 
 from keras import regularizers
 import os
 import csv
 import threading
 import time
-
-import os
-from keras.utils import np_utils
-from sklearn.preprocessing import LabelEncoder
-import pandas as pd
-import librosa
-import glob
-
-import pyaudio
-import wave
-
 
 def train():
 
@@ -353,161 +343,190 @@ def test():
 
     print(finaldf[0:30], abc123[0:30])
 
+def analyzer(fileName):
 
-class CNN:
-    def __init__(self, model_h5, model_json):
-        opt = keras.optimizers.rmsprop(lr=0.00001, decay=1e-6)
-        json_file = open(model_json, 'r')
-        loaded_model_json = json_file.read()
-        json_file.close()
-        loaded_model = model_from_json(loaded_model_json)
-        model_name = model_h5
-        save_dir = os.path.join(os.getcwd(), 'saved_models')
-        loaded_model.load_weights(os.path.join(save_dir, model_name))
-        loaded_model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
+    import os
+    from keras.utils import np_utils
+    from sklearn.preprocessing import LabelEncoder
+    import pandas as pd
+    import librosa
+    import glob
 
-        self.loaded_model = loaded_model
-        self.loaded_model.predict(np.zeros((1, 216, 1)))
-
-    def analyzer(self, fileName, num):
-
-
-        # mylist2 = []
-        # mylist = []
-        # for i in os.listdir("soundAnalysis/voiceSamples"):
-        #     [mylist.append(f) for f in os.listdir(os.path.join("soundAnalysis/voiceSamples", i))]
-        #     [mylist2.append(os.path.join("soundAnalysis/voiceSamples", i,f)) for f in os.listdir(os.path.join("soundAnalysis/voiceSamples", i))]
-        #
-        #
-        # feeling_list =[]
-        # for item in mylist:
-        #     if item[6:-16]=='02' and int(item[18:-4])%2==0:
-        #         feeling_list.append('female_calm')
-        #     elif item[6:-16]=='02' and int(item[18:-4])%2==1:
-        #         feeling_list.append('male_calm')
-        #     elif item[6:-16]=='03' and int(item[18:-4])%2==0:
-        #         feeling_list.append('female_happy')
-        #     elif item[6:-16]=='03' and int(item[18:-4])%2==1:
-        #         feeling_list.append('male_happy')
-        #     elif item[6:-16]=='04' and int(item[18:-4])%2==0:
-        #         feeling_list.append('female_sad')
-        #     elif item[6:-16]=='04' and int(item[18:-4])%2==1:
-        #         feeling_list.append('male_sad')
-        #     elif item[6:-16]=='05' and int(item[18:-4])%2==0:
-        #         feeling_list.append('female_angry')
-        #     elif item[6:-16]=='05' and int(item[18:-4])%2==1:
-        #         feeling_list.append('male_angry')
-        #     elif item[6:-16]=='06' and int(item[18:-4])%2==0:
-        #         feeling_list.append('female_fearful')
-        #     elif item[6:-16]=='06' and int(item[18:-4])%2==1:
-        #         feeling_list.append('male_fearful')
-        #     elif item[:1]=='a':
-        #         feeling_list.append('male_angry')
-        #     elif item[:1]=='f':
-        #         feeling_list.append('male_fearful')
-        #     elif item[:1]=='h':
-        #         feeling_list.append('male_happy')
-        #     #elif item[:1]=='n':
-        #         #feeling_list.append('neutral')
-        #     elif item[:2]=='sa':
-        #         feeling_list.append('male_sad')
-        # #print(feeling_list)
-        #
-        # labels = pd.DataFrame(feeling_list)
+    # mylist2 = []
+    # mylist = []
+    # for i in os.listdir("soundAnalysis/voiceSamples"):
+    #     [mylist.append(f) for f in os.listdir(os.path.join("soundAnalysis/voiceSamples", i))]
+    #     [mylist2.append(os.path.join("soundAnalysis/voiceSamples", i,f)) for f in os.listdir(os.path.join("soundAnalysis/voiceSamples", i))]
+    #
+    #
+    # feeling_list =[]
+    # for item in mylist:
+    #     if item[6:-16]=='02' and int(item[18:-4])%2==0:
+    #         feeling_list.append('female_calm')
+    #     elif item[6:-16]=='02' and int(item[18:-4])%2==1:
+    #         feeling_list.append('male_calm')
+    #     elif item[6:-16]=='03' and int(item[18:-4])%2==0:
+    #         feeling_list.append('female_happy')
+    #     elif item[6:-16]=='03' and int(item[18:-4])%2==1:
+    #         feeling_list.append('male_happy')
+    #     elif item[6:-16]=='04' and int(item[18:-4])%2==0:
+    #         feeling_list.append('female_sad')
+    #     elif item[6:-16]=='04' and int(item[18:-4])%2==1:
+    #         feeling_list.append('male_sad')
+    #     elif item[6:-16]=='05' and int(item[18:-4])%2==0:
+    #         feeling_list.append('female_angry')
+    #     elif item[6:-16]=='05' and int(item[18:-4])%2==1:
+    #         feeling_list.append('male_angry')
+    #     elif item[6:-16]=='06' and int(item[18:-4])%2==0:
+    #         feeling_list.append('female_fearful')
+    #     elif item[6:-16]=='06' and int(item[18:-4])%2==1:
+    #         feeling_list.append('male_fearful')
+    #     elif item[:1]=='a':
+    #         feeling_list.append('male_angry')
+    #     elif item[:1]=='f':
+    #         feeling_list.append('male_fearful')
+    #     elif item[:1]=='h':
+    #         feeling_list.append('male_happy')
+    #     #elif item[:1]=='n':
+    #         #feeling_list.append('neutral')
+    #     elif item[:2]=='sa':
+    #         feeling_list.append('male_sad')
+    # #print(feeling_list)
+    #
+    # labels = pd.DataFrame(feeling_list)
 
 
-        X, sample_rate = librosa.load('soundAnalysis/'+fileName, res_type='kaiser_fast', duration=2.5, sr=22050 * 2, offset=0.5)
-        sample_rate = np.array(sample_rate)
-        mfccs = np.mean(librosa.feature.mfcc(y=X, sr=sample_rate, n_mfcc=13), axis=0)
-        featurelive = mfccs
-        livedf2 = featurelive
+    X, sample_rate = librosa.load(fileName, res_type='kaiser_fast', duration=2.5, sr=22050 * 2, offset=0.5)
+    sample_rate = np.array(sample_rate)
+    mfccs = np.mean(librosa.feature.mfcc(y=X, sr=sample_rate, n_mfcc=13), axis=0)
+    featurelive = mfccs
+    livedf2 = featurelive
 
-        livedf2 = pd.DataFrame(data=livedf2)
+    livedf2 = pd.DataFrame(data=livedf2)
 
-        livedf2 = livedf2.stack().to_frame().T
+    livedf2 = livedf2.stack().to_frame().T
 
-        twodim = np.expand_dims(livedf2, axis=2)
+    twodim = np.expand_dims(livedf2, axis=2)
 
-
-        livepreds = self.loaded_model.predict(twodim,
-                                         batch_size=32,
-                                         verbose=1)
-
-        livepreds1 = livepreds.argmax(axis=1)
-
-        liveabc = livepreds1.astype(int).flatten()
-
-        with open("soundAnalysis/voiceAnalysis.csv", "w") as csvfile:
-            state = ["female_angry", "female_calm", "female_fearful", "female_happy", "female_sad", "male_angry",
-                     "male_calm", "male_fearful", "male_happy", "male_sad"]
-            writer = csv.DictWriter(csvfile, fieldnames=state)
-
-            dict = {}
-
-            for i in range(10):
-                dict[state[i]] = livepreds[0][i]
-
-            writer.writeheader()
-            writer.writerow(dict)
+    opt = keras.optimizers.rmsprop(lr=0.00001, decay=1e-6)
 
 
-        print(livepreds)
+    from keras.models import model_from_json
+    json_file = open('model.json', 'r')
+    loaded_model_json = json_file.read()
+    json_file.close()
+    loaded_model = model_from_json(loaded_model_json)
+
+    model_name = 'Emotion_Voice_Detection_Model.h5'
+    save_dir = os.path.join(os.getcwd(), 'saved_models')
+
+    loaded_model.load_weights(os.path.join(save_dir, model_name))
+
+    loaded_model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
+    livepreds = loaded_model.predict(twodim,
+                                     batch_size=32,
+                                     verbose=1)
+
+    livepreds1 = livepreds.argmax(axis=1)
+
+    liveabc = livepreds1.astype(int).flatten()
+
+    with open("voiceAnalysis01.csv", "w") as csvfile:
+        state = ["female_angry", "female_calm", "female_fearful", "female_happy", "female_sad", "male_angry",
+                 "male_calm", "male_fearful", "male_happy", "male_sad"]
+        writer = csv.DictWriter(csvfile, fieldnames=state)
+
+        dict = {}
+
+        for i in range(10):
+            dict[state[i]] = livepreds[0][i]
+
+        writer.writeheader()
+        writer.writerow(dict)
 
 
+    print(state[liveabc[0]])
 
-    def worker(self, num):
+def speech_recog():
+    
+    recognizer = sr.Recognizer()
+    print("Recognizing")
+    user_said = recognize_speech(recognizer)
 
-        CHUNK = 1024
-        FORMAT = pyaudio.paInt16  # paInt8
-        CHANNELS = 2
-        RATE = 44100  # sample rate
-        RECORD_SECONDS = 4
-        WAVE_OUTPUT_FILENAME = "output{}.wav".format(num)
+    #if what was said was understood
+    if user_said["transcription"]:
+        #change from type object to string
+        said = str(user_said["transcription"])
+
+        #write said to csv
+        with open('csvfile.csv','w') as file:
+            file.write(said)
+            file.write('\n')
+
+        #print what was said
+        print(user_said["transcription"])
+    elif user_said["success"]:
+        print("I didn't catch that. What did you say?\n")
+    else:
+        print("Error")
+        print(user_said["error"])
+
+def worker(num):
+
+    import pyaudio
+    import wave
+
+    CHUNK = 1024
+    FORMAT = pyaudio.paInt16  # paInt8
+    CHANNELS = 2
+    RATE = 44100  # sample rate
+    RECORD_SECONDS = 4
+    WAVE_OUTPUT_FILENAME = "output{}.wav".format(num)
+
+    for c in range(1, 100):
+
+
         p = pyaudio.PyAudio()
+
         stream = p.open(format=FORMAT,
                         channels=CHANNELS,
                         rate=RATE,
                         input=True,
                         frames_per_buffer=CHUNK)  # buffer
 
-        for c in range(1, 100):
+        print("* recording")
 
+        frames = []
 
-            print("{}: recording".format(num))
+        for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+            data = stream.read(CHUNK)
+            frames.append(data)  # 2 bytes(16 bits) per channel
 
-            frames = []
-
-            for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-                data = stream.read(CHUNK)
-                frames.append(data)  # 2 bytes(16 bits) per channel
-
-            print("{}: done recording".format(num))
-
-
-
-
-            wf = wave.open("soundAnalysis/"+WAVE_OUTPUT_FILENAME, 'wb')
-            wf.setnchannels(CHANNELS)
-            wf.setsampwidth(p.get_sample_size(FORMAT))
-            wf.setframerate(RATE)
-            wf.writeframes(b''.join(frames))
-            wf.close()
-
-
-            self.analyzer(WAVE_OUTPUT_FILENAME, num)
+        print("* done recording")
 
         stream.stop_stream()
         stream.close()
         p.terminate()
 
+        wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
+        wf.setnchannels(CHANNELS)
+        wf.setsampwidth(p.get_sample_size(FORMAT))
+        wf.setframerate(RATE)
+        wf.writeframes(b''.join(frames))
+        wf.close()
+
+
+        analyzer(WAVE_OUTPUT_FILENAME)
+
+        if num==0:
+            speech_recog()
 
 
 
 if __name__ == "__main__":
-    cnn = CNN("Emotion_Voice_Detection_Model.h5", "model.json")
     threads = []
-    for i in range(4):
-        t = threading.Thread(target=cnn.worker, args=(i,))
+    for i in range(5):
+        t = threading.Thread(target=worker, args=(i,))
         threads.append(t)
         t.start()
         time.sleep(1)
