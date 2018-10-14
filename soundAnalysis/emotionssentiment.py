@@ -1,11 +1,7 @@
 import librosa
-import librosa.display
 import numpy as np
 import pyaudio
 import wave
-import matplotlib.pyplot as plt
-import tensorflow as tf
-from matplotlib.pyplot import specgram
 import keras
 from keras.preprocessing import sequence
 from keras.models import Sequential
@@ -35,7 +31,6 @@ from keras.layers import Dense, Dropout, Embedding, LSTM, Conv1D, MaxPooling1D, 
 from sklearn.preprocessing import Normalizer
 from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.feature_extraction.text import CountVectorizer
-import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 from keras.preprocessing.text import Tokenizer
