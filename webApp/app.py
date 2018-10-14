@@ -42,6 +42,10 @@ answer = predict()
 def index():
     return render_template('index.html', positivity=answer, transcript=answer)
 
+# @app.route('/')
+# def devs():
+#     return render_template('developers..html')
+
 
 if __name__ == "__main__":
     app.run()
