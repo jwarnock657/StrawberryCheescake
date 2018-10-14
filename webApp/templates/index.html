@@ -2,6 +2,7 @@
 <html>
 <link rel="stylesheet" type="text/css" href="{{url_for('static', filename= 'styles/style.css')}}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<meta http-equiv="refresh" content="4; URL=http://127.0.0.1:5000/">
 
 <head>
   <title>Strawberry Cheesecake - How do you feel?</title>
@@ -45,7 +46,7 @@
       });
 
       // start/stop mic on button click
-      micBtn.onclick = function () {
+      window.onload = function () {
         if (wavesurfer.microphone.active) {
           wavesurfer.microphone.stop();
         } else {

@@ -353,7 +353,7 @@ class CNN:
     def __init__(self, model_h5, model_json):
         # Sound
         opt = keras.optimizers.rmsprop(lr=0.00001, decay=1e-6)
-        json_file = open(model_json, 'r')
+        json_file = open(os.path.join('soundAnalysis',model_json), 'r')
         loaded_model_json = json_file.read()
         json_file.close()
         loaded_model = model_from_json(loaded_model_json)
