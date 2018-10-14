@@ -2,11 +2,12 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 import csv
+import os
 
 
 def get_stats():
     dict_ = {}
-    with open("soundAnalysis/voiceAnalysis.csv", "r") as csvfile:
+    with open(os.path.join("soundAnalysis", "voiceAnalysis.csv"), "r") as csvfile:
         reader = csv.DictReader(csvfile)
         for d in reader:
             dict_=d
@@ -22,6 +23,7 @@ plt.show(block=False)
 
 
 
+txt = ax.text(0,0,"")
 fap, fcp, ffp, fhp, fsp, map, mcp, mfp, mhp, msp = plt.bar(ind, 0)
 
 ax.set_xticks(ind)
@@ -48,6 +50,13 @@ for i in range(200):  # run for a little while
     mfp.set_height(float(d["male_fearful"]))
     mhp.set_height(float(d["male_happy"]))
     msp.set_height(float(d["male_sad"]))
+
+    with open(os.path.join("soundAnalysis", "textAnalysisOutput.txt"), 'r') as file:
+        val = int(file.readline())
+        if val == 0:
+            txt.set_text(str(val))
+        elif val==1:
+            txt.set_text(str(val))
 
     # ask the canvas to re-draw itself the next time it
     # has a chance.
