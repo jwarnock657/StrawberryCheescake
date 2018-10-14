@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css?family=Open Sans:200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');
+
+*{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal !important;
+}
+
+
+/******************************
+Flexbox Layout
+*******************************/
+
+.header, .nav {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.positivity
+{
+
+}
+.Mood
+{
+
+}
+.header {
+  justify-content: space-between;
+}
+.footer
+{
+  margin-top: 200px;
+  clear: both;
+  font-size: 20pt;
+  color: white;
+}
+.nav {
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+@media all and (min-width: 640px) {
+  .header, .nav {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+@media all and (min-width: 1030px) {
+  .nav {
+    -webkit-flex: none;
+    flex: none;
+  }
+}
+
+
+/******************************
+Treehouse Styling
+*******************************/
+ul li {
+  style: none;
+}
+
+.names div {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+body {
+  margin: 10;
+
+  /* Faded Background */
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+}
+
+#container {
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+}
+/* Gradient Background */
+@-webkit-keyframes Gradient {
+0% {
+  background-position: 0% 50%
+}
+50% {
+  background-position: 100% 50%
+}
+100% {
+  background-position: 0% 50%
+}
+}
+
+@-moz-keyframes Gradient {
+0% {
+  background-position: 0% 50%
+}
+50% {
+  background-position: 100% 50%
+}
+100% {
+  background-position: 0% 50%
+}
+}
+
+@keyframes Gradient {
+0% {
+  background-position: 0% 50%
+}
+50% {
+  background-position: 100% 50%
+}
+100% {
+  background-position: 0% 50%
+}
+}
+/* Background ends here */
+
+h1.a {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  text-align: center;
+  color: #fff;
+}
+
+h1 {
+  font-size: 24px;
+  margin-top: 100px;
+  margin-bottom: 10px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  color: #e8e8e8;
+}
+
+.header {
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+.logo {
+  background: transparent url('https://scontent-lhr3-1.xx.fbcdn.net/v/t1.15752-9/43879772_514267132375213_3949910246209617920_n.png?_nc_cat=103&oh=c863203d566f1172b441782d085ebf81&oe=5C4969D5') center center no-repeat;
+  width: 200px;
+  background-size: contain;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.nav {
+  list-style: none;
+}
+
+.nav button {
+  background-color: Transparent;
+  border: 3px solid: grey;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 35px 10px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-repeat:no-repeat;
+  overflow: hidden;
+}
+
+.button1 {
+    color: #e8e8e8;
+    border: 2px solid #e7e7e7;
+}
+
+.button4:hover {
+  background-color: #e7e7e7;
+}
+
+/* --- Slider starts here ---*/
+.slidecontainer {
+    width: 100%;
+    margin-top: 70px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 50%;
+    height: 20px;
+    border-radius: 5px;
+    background: ##9cb7d8;
+    outline: none;
+    opacity: 2;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: url('https://png2.kisspng.com/sh/4df5af64bf6aec718f087846c14cb0ce/L0KzQYm3UcI3N5tuiZH0aYP2gLBuTfNqepRxfZ8CLXzyd7E0kvFqdpN0j597YXnxcrFATfNqepRxfZ98dHH1PbbqjPlxe5YyTdMBYnW6RbW5hvI6PGozSaQ8MkS0RIK4VcE4OGM2SKQ6MUm4RXB3jvc=/kisspng-circle-7-logo-rainbow-rainbow-circle-star-eclipse-5a6be75d2fb949.1232414115170210211955.png');
+    background-size: contain;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 50px;
+    height: 50px;
+    border: 0;
+    background: url('https://png2.kisspng.com/sh/4df5af64bf6aec718f087846c14cb0ce/L0KzQYm3UcI3N5tuiZH0aYP2gLBuTfNqepRxfZ8CLXzyd7E0kvFqdpN0j597YXnxcrFATfNqepRxfZ98dHH1PbbqjPlxe5YyTdMBYnW6RbW5hvI6PGozSaQ8MkS0RIK4VcE4OGM2SKQ6MUm4RXB3jvc=/kisspng-circle-7-logo-rainbow-rainbow-circle-star-eclipse-5a6be75d2fb949.1232414115170210211955.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* Slider ends here */
+
+/* Visualiser starts here */
+visualiser {
+  width: 50%;
+  align-self: center;
+  justify-content: center;
+  float: center;
+}
+
+#waveform{
+  background: rgba(0,0,0,0);
+  width: 100%;
+}
+
+/* Container for the play button. Provides positioning*/
+.controls {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    top:-30%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 3em;
+    transistion: all .5s ease;
+}
+
+/* Visualiser ends here */
+
+@media all and (min-width: 1030px) {
+  .header {
+    width: 1030px;
+    min-width: 768px;
+  }
+}
+
+#micBtn {
+  background-color: Transparent;
+  border: 3px solid: grey;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 35px 10px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-repeat:no-repeat;
+  overflow: hidden;
+  color: #e8e8e8;
+  border: 2px solid #e7e7e7;
+}
