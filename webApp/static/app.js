@@ -37,28 +37,5 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         wavesurfer.microphone.start();
       }
-
-      // start running python scripts
-
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     };
 });
