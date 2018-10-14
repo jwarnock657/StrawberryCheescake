@@ -24,8 +24,9 @@ for actor in os.listdir(os.path.join(os.getcwd(), "soundAnalysis","voiceSamples"
                                                 sr=sample_rate,
                                                 n_mfcc=13),
                             axis=0)
-            data.append((int(file_.split("-")[2]), mfccs))
+            data.append((int(file_.split("-")[2])%2, mfccs))
 
 
-df = pd.DataFrame(data)
-df.to_csv("happySad_MFCC.csv")
+df = pd.DataFrame(data, columns=["Sentiment", "MFCC"])
+df.to_csv("soundAnalysis/happySad_MFCC.csv")
+print("Caio fuckers....")
