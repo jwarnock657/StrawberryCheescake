@@ -45,36 +45,37 @@
     var output = document.getElementById("demo");
     output.innerHTML = slider.value;
 
-    slider.oninput = function () {
+    slider.oninput = function() {
       output.innerHTML = this.value;
     }
   </script>
 
   <!-- file input processed here -->
 
-  <iframe id="frmFile" src="test.txt" onload="LoadFile();" style="display: none;"></iframe>
-
-  <script type="text/javascript">
-    function LoadFile() {
-      var oFrame = document.getElementById("frmFile");
-      var strRawContents = oFrame.contentWindow.document.body.childNodes[0].innerHTML;
-
-      while (strRawContents.indexOf("\r") >= 0)
-        strRawContents = strRawContents.replace("\r", "");
-
-      var arrLines = strRawContents.split("\n");
-
-      alert("File " + oFrame.src + " has " + arrLines.length + " lines");
-      
-      for (var i = 0; i < arrLines.length; i++) {
-        var curLine = arrLines[i];
-        // alert("Line #" + (i + 1) + " is: '" + curLine + "'");
-        document.write("Line #" + (i + 1) + " is: '" + curLine + "'");
-      }
-    }
+  <div id="shitframediv">
+    <iframe id="frmFile" src="test.txt" onload="loadfile();" style="position: absolute;">
+      <h2 id="csvOutput">TextOutput:
+        <script src="loadfile.js"></script>
+      </h2>
+      <script>
+        window.setInterval("reloadIFrame();", 3000);
+        var f = document.getElementById('frmFile');
+        f.src = f.src;
+      </script>
+    </iframe>
+  </div>
+  <script>
+    $('#shitframediv').load(document.URL + ' #shitframediv');
   </script>
+  <!-- <h1 id="csvOutput" onload="LoadFile();">Results here</h1> -->
+  <!-- <script type="text/javascript">
 
-<!-- end of file parsing -->
+            var newContent = document.getElementById("csvOutput").innerHTML = message;
+          // )};
+  </script> -->
+
+
+  <!-- end of file parsing -->
 
   <!-- Div for the visualiser -->
   <div class="visualiser">
