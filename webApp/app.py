@@ -38,9 +38,25 @@ def predict():
 
 
 answer = predict()
+maxmood = "None"
+confidence = 0
+for key, value in answer["voiceAnalysis"].iteritems():
+    if value > confidence:
+        confidence = value
+        maxmood = key
+    else: 
+        pass
+
+confidence = round(float(confidence), 3) * 100
+
+if (answer["textAnalysisOutput"] == 1):
+    answer["textAnalysisOutput"] = "positive"
+elif(answer["textAnalysisOutput"] == 0):
+    answer["textAnalysisOutput"] = "Negative"
+
 @app.route('/')
 def index():
-    return render_template('index.html', positivity=answer["textAnalysisOutput"], transcript=answer['fourSSPeech2Txt'], mood=answer['voiceAnalysis'])
+    return render_template('index.html', positivity=answer["textAnalysisOutput"], transcript=answer['fourSSPeech2Txt'], mood=maxmood, confidence = confidence)
 
 # @app.route('/')
 # def devs():
