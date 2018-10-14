@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <title>Strawberry Cheesecake - How do you feel?</title>
   <link rel="shortcut icon" href="sc_browser_icon.ico">
   <!-- JS files for the visualiser -->
@@ -18,7 +18,7 @@
 
     <form>
       <button class="button button1" formaction="index.html">HOME</button>
-      <button class="button button1" formaction="manual.html">CREDITS</button>
+      <button class="button button1" formaction="developers.html">CREDITS</button>
     </form>
 
   </ul>
@@ -28,27 +28,11 @@
 <!-- Sidenote: have to look up ajax -->
 
 <body>
+  <script>document.body.className = 'fade';</script>
 
   <!-- fancy label cause creative points -->
 
   <h1 class="animated slideInUp delay-2s">Emotional State Display (ESD): </h1>
-
-  <!-- Magic slider shit
-  <div class="slidecontainer">
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-    <p style=color:#e8e8e8>Value: <span style=color:#e8e8e8 id="demo"></span></p>
-  </div>
--->
-  <!-- Honestly couldn't be fucked linking the JS so here it is  -->
-  <script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
-
-    slider.oninput = function () {
-      output.innerHTML = this.value;
-    }
-  </script>
 
   <!-- Div for the visualiser -->
   <div class="visualiser">
@@ -66,9 +50,6 @@
   </div>
   <!-- End of visualiser -->
 
-
 </body>
-<link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
-
 
 </html>
