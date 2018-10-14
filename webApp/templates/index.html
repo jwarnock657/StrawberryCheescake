@@ -9,49 +9,49 @@
   <!-- JS files for the visualiser -->
   <script src="https://unpkg.com/wavesurfer.js" type="text/javascript"></script>
   <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js" type="text/javascript"></script>
-  <script type="text/text/javascript "src="{{url_for('static', filename= 'app.js')}}"></script>
+  <script type="text/text/javascript " src="{{url_for('static', filename= 'app.js')}}"></script>
   <script type="text/javascript">
-  'use strict';
+    'use strict';
 
-  // Create an instance
-  var wavesurfer;
+    // Create an instance
+    var wavesurfer;
 
-  // Init & load
-  document.addEventListener('DOMContentLoaded', function() {
-    var micBtn = document.querySelector('#micBtn');
+    // Init & load
+    document.addEventListener('DOMContentLoaded', function () {
+      var micBtn = document.querySelector('#micBtn');
 
-    // Init wavesurfer
-    wavesurfer = WaveSurfer.create(
-    {
-      container: '#waveform',
-      waveColor: '#f7f7f7',
-      progressColor: '#4f4f4f',
-      barHeight: 5,
-      barWidth: .1,
-      barGap: -1,
-      interact: false,
-      cursorWidth: 0,
-      normalize: true,
-      plugins: [WaveSurfer.microphone.create()]
-    }
-    );
+      // Init wavesurfer
+      wavesurfer = WaveSurfer.create(
+        {
+          container: '#waveform',
+          waveColor: '#f7f7f7',
+          progressColor: '#4f4f4f',
+          barHeight: 5,
+          barWidth: .1,
+          barGap: -1,
+          interact: false,
+          cursorWidth: 0,
+          normalize: true,
+          plugins: [WaveSurfer.microphone.create()]
+        }
+      );
 
-    wavesurfer.microphone.on('deviceReady', function() {
-      console.info('Device ready!');
-    });
-    wavesurfer.microphone.on('deviceError', function(code) {
-      console.warn('Device error: ' + code);
+      wavesurfer.microphone.on('deviceReady', function () {
+        console.info('Device ready!');
+      });
+      wavesurfer.microphone.on('deviceError', function (code) {
+        console.warn('Device error: ' + code);
       });
 
       // start/stop mic on button click
-      micBtn.onclick = function() {
+      micBtn.onclick = function () {
         if (wavesurfer.microphone.active) {
           wavesurfer.microphone.stop();
         } else {
           wavesurfer.microphone.start();
         }
       };
-  });
+    });
 
   </script>
 </head>
@@ -77,7 +77,7 @@
   <!-- fancy label cause creative points -->
 
   <h1 class="animated slideInUp delay-2s">What you're saying: </h1>
-    {{transcript}}
+  {{ transcript }}
   <!-- Div for the visualiser -->
   <div class="visualiser">
     <h1 class="animated slideInUp delay-2s" style=margin-top:150px>Audio Visualiser:</h1>

@@ -40,7 +40,7 @@ def predict():
 answer = predict()
 @app.route('/')
 def index():
-    return render_template('index.html', positivity=answer, transcript=answer)
+    return render_template('index.html', positivity=answer["textAnalysisOutput"], transcript=answer['fourSSPeech2Txt'], mood=answer['voiceAnalysis'])
 
 # @app.route('/')
 # def devs():
