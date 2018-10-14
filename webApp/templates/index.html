@@ -77,8 +77,9 @@
   <!-- fancy label cause creative points -->
 
   <h1 class="animated slideInUp delay-2s">What you're saying: </h1>
-  {{ transcript }}
-  <!-- Div for the visualiser -->
+  <h1 class="b">
+    " {{ transcript }} "
+  </h1>
   <div class="visualiser">
     <h1 class="animated slideInUp delay-2s" style=margin-top:150px>Audio Visualiser:</h1>
     <div id="demo">
@@ -95,10 +96,10 @@
   <!-- End of visualiser -->
   <div class="footer">
     <div class="positivity">
-      <h3>positivity: {{positivity}}</h3>
+      <h3>Text Sentiment: {{positivity}}</h3>
     </div>
     <div class="mood">
-      <h3>Mood: {{mood}}</h3>
+      <h3>Mood: {{mood}}, confidence: {{confidence}}</h3>
     </div>
   </div>
 </body>
